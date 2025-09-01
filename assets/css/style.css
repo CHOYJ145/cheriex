@@ -1,0 +1,344 @@
+@import url('reset.css');
+
+@font-face {
+    font-family: 'Suisse Intl';
+    src: url('../font/SuisseIntl-Regular.woff2') format('woff2'),
+    url('../font/SuisseIntl-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suisse Intl';
+    src: url('../font/SuisseIntl-Bold.woff2') format('woff2'),
+    url('../font/SuisseIntl-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suisse Intl';
+    src: url('../font/SuisseIntl-Medium.woff2') format('woff2'),
+    url('../font/SuisseIntl-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard Variable';
+    font-weight: 45 920;
+    font-style: normal;
+    font-display: swap;
+    src: url('../font/PretendardVariable.woff2') format('woff2-variations');
+}
+
+:root {
+    --bk: #000;
+    --bk-o: #000000E5;
+    --wh: #fff;
+    --wh-o: #FFFFFF99;
+    --gr: #EAEAEA;
+    --gr-o: #EAEAEA33;
+    --p: #E62222;
+
+    --fz-mc: 8px;
+    --fz-xs: 10px;
+    --fz-s: 12px;
+    --fz: 14px;
+    --fz-m: 16px;
+    --fz-l: 16px;
+
+    --fw: 400;
+    --fw-b: 700;
+
+    --br: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+    :root {
+
+    }
+}
+
+html,
+body {
+    color: var(--wh);
+    font-family: 'Suisse Intl', 'Pretendard Variable', sans-serif;
+    font-style: normal;
+    font-weight: var(--fw);
+    font-size: var(--fz);
+    line-height: normal;
+    background: var(--bk);
+}
+
+a,
+button {
+    display: inline-block;
+    color: var(--wh);
+    font-family: 'Suisse Intl', 'Pretendard Variable', sans-serif;
+    font-style: normal;
+    font-weight: var(--fw);
+    font-size: var(--fz);
+    line-height: normal;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: var(--fw-b);
+}
+
+.pc {
+    display: flex;
+}
+
+.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .pc {
+        display: none;
+    }
+
+    .mobile {
+        display: flex;
+    }
+}
+
+.scroll-p {
+    height: 100%;
+    overflow: hidden;
+}
+
+/*intro*/
+.intro {
+    position: fixed;
+    z-index: 99999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden;
+    background: var(--p);
+
+    opacity: 1;
+    transition: opacity 400ms linear;
+}
+
+.intro.fade-out {
+    opacity: 0;
+}
+
+.intro-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.intro-hero {
+    margin: auto auto 0;
+    width: 550px;
+}
+
+.intro-text {
+    margin: -40px auto auto;
+    color: var(--bk);
+}
+
+@media screen and (max-width: 1024px) {
+    .intro-hero {
+        width: 330px;
+    }
+}
+
+/*main*/
+.container {
+    position: relative;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 56px;
+}
+
+.content {
+    position: relative;
+    height: 100%;
+    transition: transform 500ms ease-out;
+}
+
+body.tall .content {
+    width: auto;
+    height: 100%;
+}
+
+body.wide .content {
+    width: 100%;
+    height: auto;
+}
+
+body.tall .content > img {
+    position: relative;
+    z-index: 0;
+    width: auto;
+    height: 100%;
+}
+
+body.wide .content > img {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: auto;
+}
+
+.cover-wrapper {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cover {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.front {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.front > svg {
+    display: block;
+}
+
+body.tall .front > svg {
+    width: auto;
+    height: 100%;
+}
+
+body.wide .front > svg {
+    width: 100%;
+    height: auto;
+}
+
+.item {
+    cursor: pointer;
+}
+
+.back-wrapper {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.back {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+
+.back.act {
+    opacity: 1;
+}
+
+.cover--light {
+    transition: transform 300ms ease-out;
+}
+
+.bg-back-wrapper {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transition: transform 600ms ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+body.tall .content .bg-back {
+    width: auto;
+    height: 100%;
+    max-height: 120vh;
+    min-height: 120vh;
+}
+
+body.wide .content .bg-back {
+    width: 100%;
+    max-width: 120vw;
+    min-width: 120vw;
+    height: auto;
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        display: block;
+        padding-top: 45px;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .container::-webkit-scrollbar {
+        display: none;
+    }
+
+    body .container .content {
+        width: fit-content;
+
+        transform: translate(0, 0);
+    }
+
+    body .container .content .bg-back {
+        top: 0;
+        height: 100%;
+
+        transition: transform 600ms ease-out;
+    }
+}
+
+.sound-wrapper {
+    position: fixed;
+    z-index: -9999;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
