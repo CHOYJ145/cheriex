@@ -20,7 +20,7 @@
     const introHeroImg = document.querySelector('.intro-hero img');
     const loadingNumEl = document.querySelector('.loading-num');
 
-    const introImageCount = 41;
+    const introImageCount = 36;
     let currentIntroIndex = 0;
     let slideshowInterval = null;
 
